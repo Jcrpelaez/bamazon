@@ -19,4 +19,24 @@ const connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log("Connection successful");
+  start();
 });
+
+function start() {
+  connection.query("Select * FROM products", function(err, res) {
+    for (let i = 0; i < res.length; i++) {
+      console.log(
+        res[i].item_id +
+          " || " +
+          res[i].product_Name +
+          " || " +
+          res[i].department_Name +
+          " || " +
+          res[i].price +
+          " || " +
+          res[i].stock_Quantity +
+          "\n"
+      );
+    }
+  });
+}
