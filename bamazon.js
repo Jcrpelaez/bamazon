@@ -1,3 +1,4 @@
+// Uses required depedencies
 const inquirer = require("inquirer");
 const mysql = require("mysql");
 
@@ -38,5 +39,37 @@ function start() {
           "\n"
       );
     }
+    promptCustomer(res);
   });
 }
+
+promptCustomer = function(res){
+  inquirer.prompt([{
+    type:"input",
+    name:'choice',
+    message:"What would you like to purchase?"
+  }]).then(function(answer){
+    let correct = false;
+    for(let i=0;i<res.length;i++){
+      if(res[i].product_Name==answer.choice){
+        correct=true;
+        let product_Name=answer.choice;
+        let id = i;
+        inquirer.prompt({
+          type:"input",
+          name:"qty",
+          message:'How many would you like to buy?',
+          validate:function(value){
+            if(isNAN(value)==false){
+              return true;
+            } else {
+              return false;
+            }
+          }
+        }).then(function(answer){
+          if((res[id]).stock_Quantity
+        }
+      }
+    }
+  })
+} 
