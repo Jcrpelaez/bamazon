@@ -18,7 +18,7 @@ CREATE TABLE products(
 
 SELECT * FROM products;
 
-INSERT INTO products (product_Name,department_name,price,stock_quantity)
+INSERT INTO products (product_Name,department_Name,price,stock_quantity)
 VALUES ('Dove Shampoo', 'Cosmetics', 5.75, 500),
 		('Dove Conditioner', 'Cosmetics', 6.25, 627),
 		('Glad 12 Gal Trash Bags', 'Grocery', 5.99, 300),
