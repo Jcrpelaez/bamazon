@@ -15,7 +15,7 @@ connect to a localhost using:
 - Run command 'npm install' in Terminal or Gitbash
 - Run command 'bamazon.js'
 
-<iframe src="https://giphy.com/embed/Xg9z44c6nbfr70ZtdI" width="200" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Xg9z44c6nbfr70ZtdI">via GIPHY</a></p>
+![bamazon](https://user-images.githubusercontent.com/52987850/71201309-5ca86a00-225f-11ea-8c70-8812eff1199a.gif)
 
 ## Technologies used
 
