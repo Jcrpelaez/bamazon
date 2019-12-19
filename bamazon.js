@@ -23,7 +23,7 @@ connection.connect(function(err) {
   display();
 });
 
-// function that prompts the user
+// function that prompts the user and displays the table
 var display = function() {
   connection.query("SELECT * FROM products", function(err, res) {
     if (err) throw err;
@@ -54,20 +54,20 @@ var display = function() {
     promptCustomer(res);
   });
 };
-
+// Customer function to prompt customer purchases
 var promptCustomer = function(res) {
   inquirer
     .prompt([
       {
         type: "input",
         name: "choice",
-        message: "What would you like to buy?"
+        message: "Enter the item id you would like to purchase?"
       }
     ])
     .then(function(answer) {
       var correct = false;
       for (var i = 0; i < res.length; i++) {
-        if (res[i].product_Name == answer.choice) {
+        if (res[i].item_id == answer.choice) {
           correct = true;
           var product = answer.choice;
           var id = i;
@@ -88,10 +88,10 @@ var promptCustomer = function(res) {
               if (res[id].stock_quantity - answer.quantity > 0) {
                 connection.query("UPDATE products SET stock_quantity='") +
                   (res[id].stock_quantity - answer.quantity) +
-                  "'WHERE product_Name='" +
+                  "'WHERE item_id='" +
                   product +
                   "'",
-                  function(err, res2) {
+                  function(err, res) {
                     console.log("Product Bought");
                     display();
                   };
@@ -104,6 +104,7 @@ var promptCustomer = function(res) {
       }
       if (i == res.length && correct == false) {
         console.log("Not a valid selection");
+        display();
       }
     });
 };
