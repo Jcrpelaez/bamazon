@@ -8,11 +8,11 @@ CREATE DATABASE bamazon_db;
 USE bamazon_db;
 -- Creates the table "products" within animals_db
 CREATE TABLE products(
-    item_id INT(11) AUTO_INCREMENT NOT NULL,
+    item_id INT AUTO_INCREMENT NOT NULL,
     product_Name VARCHAR (100) NOT NULL, 
     department_Name VARCHAR (45) NOT NULL,
     price DECIMAL(10.2) NOT NULL,
-    stock_Quantity INT(11) NOT NULL,
+    stock_Quantity INT NOT NULL,
     PRIMARY KEY(item_id)
 );
 
