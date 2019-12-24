@@ -34,9 +34,9 @@ var display = function() {
     console.log("What would you like to buy?");
     console.log("");
     var table = new Table({
-      head: ["Item", "Product", "Department", "Price"],
-      colWidths: [12, 30, 30, 8],
-      colAligns: ["center", "left", "left", "right"],
+      head: ["Item", "Product", "Department", "Price", "stock"],
+      colWidths: [12, 30, 30, 8, 8],
+      colAligns: ["center", "left", "left", "right", "right"],
       style: {
         compact: true
       }
@@ -46,7 +46,8 @@ var display = function() {
         res[i].item_id,
         res[i].product_Name,
         res[i].department_Name,
-        res[i].price
+        res[i].price,
+        res[i].stock_quantity
       ]);
     }
     console.log(table.toString());
@@ -61,7 +62,7 @@ var promptCustomer = function(res) {
       {
         type: "input",
         name: "choice",
-        message: "Enter the item id you would like to purchase?"
+        message: "Enter the item id you would like to purchase"
       }
     ])
     .then(function(answer) {
